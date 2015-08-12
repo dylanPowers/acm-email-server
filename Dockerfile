@@ -26,6 +26,7 @@ RUN postconf -e 'relay_domains = hackathon.eecs.wsu.edu' && \
 
 ADD mailman-config /
 RUN . /mailman-config && /usr/lib/mailman/bin/newlist mailman $ADMIN_EMAIL $ADMIN_PASS
+RUN . /mailman-config && /usr/lib/mailman/bin/newlist admins $ADMIN_EMAIL $ADMIN_PASS
 
 EXPOSE 25 8080
 
