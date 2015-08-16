@@ -23,7 +23,8 @@ ADD mm_cfg.py /usr/lib/mailman/Mailman/
 RUN postconf -e 'relay_domains = hackathon.eecs.wsu.edu' && \ 
     postconf -e 'transport_maps = hash:/etc/postfix/transport' && \
     postconf -e 'mailman_destination_recipient_limit = 1' && \
-    postmap -v /etc/postfix/transport
+    postmap -v /etc/postfix/transport && \
+    /usr/lib/mailman/bin/check_perms -f
 
 ADD mailman-config /
 RUN . /mailman-config && /usr/lib/mailman/bin/newlist mailman $ADMIN_EMAIL $ADMIN_PASS
