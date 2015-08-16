@@ -29,13 +29,15 @@ RUN /usr/lib/mailman/bin/check_perms -f
 
 ADD mailman-config /
 ADD default-list-config /
-RUN . /mailman-config && /usr/lib/mailman/bin/newlist mailman $ADMIN_EMAIL $ADMIN_PASS
 RUN . /mailman-config && \
-    /usr/lib/mailman/bin/newlist sponsor $ADMIN_EMAIL $ADMIN_PASS && \
-    /usr/lib/mailman/bin/config_list -i default-list-config sponsor
+    newlist mailman $ADMIN_EMAIL $ADMIN_PASS && \
+    config_list -i /var/lib/mailman/data/sitelist.cfg mailman
 RUN . /mailman-config && \
-    /usr/lib/mailman/bin/newlist hacker $ADMIN_EMAIL $ADMIN_PASS && \
-    /usr/lib/mailman/bin/config_list -i default-list-config hacker
+    newlist sponsor $ADMIN_EMAIL $ADMIN_PASS && \
+    config_list -i default-list-config sponsor
+RUN . /mailman-config && \
+    newlist hacker $ADMIN_EMAIL $ADMIN_PASS && \
+    config_list -i default-list-config hacker
 
 EXPOSE 25 8080
 VOLUME /var/lib/mailman/data /var/lib/mailman/lists /var/lib/mailman/archives
