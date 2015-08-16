@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 ## Build:
 ## docker build -t hackathon-email .
 ## Run:
-## docker run -d -p 8080:8080 -p 25:25 hackathon-email
+## docker run -d -p 8080:80 -p 25:25 hackathon-email
 ##
 
 
