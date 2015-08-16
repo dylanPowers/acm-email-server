@@ -1013,7 +1013,7 @@ archive = True
 # legal values are:
 #    0 = "public"
 #    1 = "private"
-archive_private = 0
+archive_private = 1
 
 # How often should a new archive volume be started?
 #
