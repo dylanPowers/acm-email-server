@@ -38,5 +38,5 @@ RUN . /mailman-config && \
     /usr/lib/mailman/bin/config_list -i default-list-config hacker
 
 EXPOSE 25 8080
-
+VOLUME /var/lib/mailman/data /var/lib/mailman/lists /var/lib/mailman/archives
 CMD [ "/usr/local/bin/start-mailman.sh" ]
