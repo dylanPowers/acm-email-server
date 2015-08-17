@@ -12,7 +12,7 @@ docker create -v /var/lib/mailman/data \
               ubuntu:14.04 /bin/true
 ```
 
-### 2, Create Config
+### 2. Create Config
 Create a file named `mailman-config` with the following contents:
 ```sh
 #!/bin/sh
