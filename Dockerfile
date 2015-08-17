@@ -1,11 +1,5 @@
 FROM ubuntu:14.04
 
-## Build:
-## docker build -t hackathon-email .
-## Run:
-## docker run -d -p 8080:80 -p 25:25 hackathon-email
-##
-
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && apt-get upgrade -y && \
@@ -40,5 +34,4 @@ RUN . /mailman-config && \
     config_list -i default-list-config hacker
 
 EXPOSE 25 8080
-VOLUME /var/lib/mailman/data /var/lib/mailman/lists /var/lib/mailman/archives
 CMD [ "/usr/local/bin/start-mailman.sh" ]
