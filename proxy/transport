@@ -1,2 +1,2 @@
-acm.eecs.wsu.edu    smtp-ipv4:acm:25
-hackathon.eecs.wsu.edu    smtp-ipv4:hackathon:25
+acm.eecs.wsu.edu          smtp:acm:25
+hackathon.eecs.wsu.edu    smtp:hackathon:25

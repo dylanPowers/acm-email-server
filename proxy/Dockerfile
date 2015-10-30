@@ -15,6 +15,7 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY transport /etc/postfix/
 RUN postconf -e 'relay_domains = acm.eecs.wsu.edu hackathon.eecs.wsu.edu' && \
     postconf -e 'transport_maps = hash:/etc/postfix/transport' && \
+    postconf -e 'smtp_host_lookup = dns, native' && \
     postmap -v /etc/postfix/transport
 
 COPY mailman-ssl.key /ssl.key
