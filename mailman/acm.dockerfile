@@ -39,5 +39,5 @@ RUN . /mailman-config && \
 RUN /usr/lib/mailman/bin/check_perms -f
 
 EXPOSE 25 80
-VOLUME /var/lib/mailman/data /var/lib/mailman/lists /var/lib/mailman/archives
+VOLUME [ "/var/lib/mailman/data", "/var/lib/mailman/lists", "/var/lib/mailman/archives" ]
 CMD [ "/usr/local/bin/start-mailman.sh" ]
