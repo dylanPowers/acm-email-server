@@ -65,7 +65,7 @@ IMAGE_LOGOS         = '/mailman/acm/images/mailman/'
 DEFAULT_EMAIL_HOST = 'acm.eecs.wsu.edu'
 #-------------------------------------------------------------
 # Default host for web interface of newly created MLs
-DEFAULT_URL_HOST   = 'acm.eecs.wsu.edu'
+DEFAULT_URL_HOST   = 'acm.eecs.wsu.edu:8080'
 #-------------------------------------------------------------
 # Required when setting any of its arguments.
 add_virtualhost(DEFAULT_URL_HOST, DEFAULT_EMAIL_HOST)
