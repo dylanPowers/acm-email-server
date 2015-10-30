@@ -58,7 +58,7 @@ MAILMAN_SITE_LIST = 'mailman'
 # If you change these, you have to configure your http server
 # accordingly (Alias and ScriptAlias directives in most httpds)
 DEFAULT_URL_PATTERN = 'https://%s/mailman/acm/'
-IMAGE_LOGOS         = '/mailman/acm/images/mailman/'
+IMAGE_LOGOS         = '/mailman/acm/images/'
 
 #-------------------------------------------------------------
 # Default domain for email addresses of newly created MLs

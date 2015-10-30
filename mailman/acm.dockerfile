@@ -12,7 +12,7 @@ RUN apt-get install -y --no-install-recommends \
     && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD lighttpd.conf /etc/lighttpd/lighttpd.conf
+ADD acm.lighttpd.conf /etc/lighttpd/lighttpd.conf
 ADD start-mailman.sh /usr/local/bin/start-mailman.sh
 
 COPY acm.transport /etc/postfix/transport

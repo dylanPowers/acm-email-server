@@ -58,7 +58,7 @@ MAILMAN_SITE_LIST = 'mailman'
 # If you change these, you have to configure your http server
 # accordingly (Alias and ScriptAlias directives in most httpds)
 DEFAULT_URL_PATTERN = 'https://%s/mailman/hackathon/'
-IMAGE_LOGOS         = '/mailman/hackathon/images/mailman/'
+IMAGE_LOGOS         = '/mailman/hackathon/images/'
 
 #-------------------------------------------------------------
 # Default domain for email addresses of newly created MLs

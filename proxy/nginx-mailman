@@ -14,7 +14,7 @@ server {
     proxy_set_header Host $http_host;
     proxy_set_header X-NginX-Proxy true;
 
-    proxy_pass http://acm_mailman/;
+    proxy_pass http://acm_mailman;
     proxy_redirect off;
   }
 
@@ -24,7 +24,7 @@ server {
     proxy_set_header Host $http_host;
     proxy_set_header X-NginX-Proxy true;
 
-    proxy_pass http://hackathon_mailman/;
+    proxy_pass http://hackathon_mailman;
     proxy_redirect off;
   }
 }
