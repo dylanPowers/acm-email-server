@@ -13,8 +13,8 @@
 
 2. Generate SSL certs
   ```sh
-  (cd router && openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mailman-ssl.key -out mailman-ssl.crt)
-  (cd router && chmod 400 mailman-ssl.key mailman-ssl.crt)
+  (cd proxy && openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mailman-ssl.key -out mailman-ssl.crt)
+  (cd proxy && chmod 400 mailman-ssl.key mailman-ssl.crt)
   ```
   
 3. Create Volumes
