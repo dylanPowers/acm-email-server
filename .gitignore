@@ -1,2 +1,3 @@
 mailman-config
-mailman-ssl.pem
+mailman-ssl.crt
+mailman-ssl.key

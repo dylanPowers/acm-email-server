@@ -3,7 +3,7 @@
 Configuration Instructions
 
 ### 1. Create Config
-Create a file named `mailman-config` with the following contents:
+Create a file named `mailman/mailman-config` with the following contents:
 ```sh
 #!/bin/sh
 
@@ -11,31 +11,24 @@ export ADMIN_EMAIL=<admin-email>
 export ADMIN_PASS=<admin-pass>
 ```
 
-### 2. Generate SSL cert
+### 2. Generate SSL certs
 ```sh
-openssl req -new -x509 -keyout mailman-ssl.pem -out mailman-ssl.pem -days 365 -nodes
-chmod 400 lighttpd.pem
+(cd router && openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mailman-ssl.key -out mailman-ssl.crt)
+(cd router && chmod 400 mailman-ssl.key mailman-ssl.crt)
 ```
 
-### 3. Build the Image
+### 3. Build the Images
 ```sh
-docker build -t hackathon-email .
+docker-compose build
 ```
 
 ### 4. Create Volumes
 This creates the persistent volumes to use. Only run this once per instance.
 ```sh
-docker create -v /var/lib/mailman/data \
-              -v /var/lib/mailman/lists \
-              -v /var/lib/mailman/archives \
-              --name hackathon-email-data \
-              hackathon-email /bin/true
+./create-persistent-volumes.sh
 ```
 
 ### 5. Run It
 ```sh
-docker run -d -p 8080:80 -p 25:25 \
-           --volumes-from hackathon-email-data \
-           --name hackathon-email \
-           hackathon-email
+docker-compose up -d
 ```

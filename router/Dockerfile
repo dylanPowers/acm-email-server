@@ -17,7 +17,11 @@ RUN postconf -e 'relay_domains = acm.eecs.wsu.edu hackathon.eecs.wsu.edu' && \
     postconf -e 'transport_maps = hash:/etc/postfix/transport' && \
     postmap -v /etc/postfix/transport
 
+COPY mailman-ssl.key /ssl.key
+COPY mailman-ssl.crt /ssl.crt
+RUN chmod 400 ssl.key ssl.crt
+
 COPY main.sh /main.sh
 
-EXPOSE 8008 25
+EXPOSE 8080 25
 CMD [ "/main.sh" ]

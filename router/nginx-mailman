@@ -1,7 +1,12 @@
 server {
-  listen 8008;
+  listen 8080 ssl;
 
   server_name acm.eecs.wsu.edu localhost;
+
+  ssl_certificate     /ssl.crt;
+  ssl_certificate_key /ssl.key;
+  ssl_protocols       TLSv1 TLSv1.1 TLSv1.2;
+  ssl_ciphers         HIGH:!aNULL:!MD5;
 
   location /mailman/acm/ {
     proxy_set_header X-Real-IP $remote_addr;
@@ -9,7 +14,7 @@ server {
     proxy_set_header Host $http_host;
     proxy_set_header X-NginX-Proxy true;
 
-    proxy_pass https://acm_mailman/;
+    proxy_pass http://acm_mailman/;
     proxy_redirect off;
   }
 
@@ -19,7 +24,7 @@ server {
     proxy_set_header Host $http_host;
     proxy_set_header X-NginX-Proxy true;
 
-    proxy_pass https://hackathon_mailman/;
+    proxy_pass http://hackathon_mailman/;
     proxy_redirect off;
   }
 }
