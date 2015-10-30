@@ -1,0 +1,39 @@
+main:
+  build: router/.
+  links:
+    - acm
+    - hackathon
+  ports:
+    - "25:25"
+    - "127.0.0.1:8008:8008"
+
+acm:
+  build: mailman/.
+  dockerfile: acm.dockerfile
+  volumes_from:
+    - acm-data
+
+acm-data:
+  build: mailman/.
+  command: /bin/true
+  dockerfile: acm.dockerfile
+  volumes:
+    - /var/lib/acm-email/data:/var/lib/mailman/data
+    - /var/lib/acm-email/lists:/var/lib/mailman/lists
+    - /var/lib/acm-email/archives:/var/lib/mailman/archives
+
+hackathon:
+  build: mailman/.
+  dockerfile: hackathon.dockerfile
+  volumes_from:
+    - hackathon-data
+
+hackathon-data:
+  build: mailman/.
+  command: /bin/true
+  dockerfile: hackathon.dockerfile
+  volumes:
+    - /var/lib/hackathon-email/data:/var/lib/mailman/data
+    - /var/lib/hackathon-email/lists:/var/lib/mailman/lists
+    - /var/lib/hackathon-email/archives:/var/lib/mailman/archives
+

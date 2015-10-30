@@ -274,7 +274,7 @@ admin_member_chunksize = 30
 # addresses on this host, and generally should be the mail host's
 # exchanger address, if any.  This setting can be useful for selecting
 # among alternative names of a host that has multiple addresses.
-host_name = 'hackathon.eecs.wsu.edu'
+# host_name =
 
 # RFC 2369 defines a set of List-* headers that are normally added to
 # every message sent to the list membership. These greatly aid end-users

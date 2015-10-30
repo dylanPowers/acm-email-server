@@ -57,15 +57,15 @@ MAILMAN_SITE_LIST = 'mailman'
 #-------------------------------------------------------------
 # If you change these, you have to configure your http server
 # accordingly (Alias and ScriptAlias directives in most httpds)
-DEFAULT_URL_PATTERN = 'https://%s/cgi-bin/mailman/'
-IMAGE_LOGOS         = '/images/mailman/'
+DEFAULT_URL_PATTERN = 'https://%s/mailman/hackathon/'
+IMAGE_LOGOS         = '/mailman/hackathon/images/mailman/'
 
 #-------------------------------------------------------------
 # Default domain for email addresses of newly created MLs
 DEFAULT_EMAIL_HOST = 'hackathon.eecs.wsu.edu'
 #-------------------------------------------------------------
 # Default host for web interface of newly created MLs
-DEFAULT_URL_HOST   = 'hackathon.eecs.wsu.edu:8080'
+DEFAULT_URL_HOST   = 'acm.eecs.wsu.edu'
 #-------------------------------------------------------------
 # Required when setting any of its arguments.
 add_virtualhost(DEFAULT_URL_HOST, DEFAULT_EMAIL_HOST)

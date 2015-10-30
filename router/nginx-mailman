@@ -1,0 +1,35 @@
+server {
+  listen 8008;
+
+  server_name acm.eecs.wsu.edu localhost;
+
+  location /mailman/acm/ {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-NginX-Proxy true;
+
+    proxy_pass https://acm_mailman;
+    proxy_redirect off;
+  }
+
+  location /mailman/hackathon/ {
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_set_header X-NginX-Proxy true;
+
+    proxy_pass https://hackathon_mailman;
+    proxy_redirect off;
+  }
+}
+
+upstream acm_mailman {
+  server acm:80;
+  keepalive 8;
+}
+
+upstream hackathon_mailman {
+  server hackathon:80;
+  keepalive 8;
+}
