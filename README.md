@@ -16,16 +16,16 @@
   (cd router && openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout mailman-ssl.key -out mailman-ssl.crt)
   (cd router && chmod 400 mailman-ssl.key mailman-ssl.crt)
   ```
-
-3. Build the Images
-  ```sh
-  docker-compose build
-  ```
-
-4. Create Volumes
+  
+3. Create Volumes
   This creates the persistent volumes to use. Only run this once per instance.
   ```sh
   ./create-persistent-volumes.sh
+  ```
+  
+4. Build the Images
+  ```sh
+  docker-compose build
   ```
 
 5. Run It
