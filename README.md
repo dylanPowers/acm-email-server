@@ -7,8 +7,8 @@
   ```sh
   #!/bin/sh
   
-  export ADMIN_EMAIL=<admin-email>
-  export ADMIN_PASS=<admin-pass>
+  export ADMIN_EMAIL='<admin-email>'
+  export ADMIN_PASS='<admin-pass>'
   ```
 
 2. Generate SSL certs
