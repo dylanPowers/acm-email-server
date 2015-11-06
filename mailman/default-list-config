@@ -265,7 +265,7 @@ administrivia = True
 
 # Maximum length in kilobytes (KB) of a message body.  Use 0 for no
 # limit.
-max_message_size = 40
+max_message_size = 1024
 
 # Maximum number of members to show on one page of the Membership List.
 admin_member_chunksize = 30
